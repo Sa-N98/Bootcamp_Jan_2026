@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Booking App</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: #0f0f14;
+      color: #ffffff;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      padding: 20px;
+      background: linear-gradient(135deg, #ff4d4d, #b31217);
+    }
+
+    header h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    header p {
+      opacity: 0.85;
+      margin-top: 4px;
+      font-size: 14px;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    /* ---------- Movie Cards ---------- */
+    .movie-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .movie-card {
+      background: #1a1a22;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .poster {
+      height: 180px;
+      background: linear-gradient(135deg, #333, #555);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: #ddd;
+    }
+
+    .movie-info {
+      padding: 10px;
+    }
+
+    .movie-info h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .movie-info span {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* ---------- Bottom Navigation ---------- */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #14141c;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      border-top: 1px solid #222;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .nav-item.active {
+      color: #ff4d4d;
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    /* ---------- Profile Card ---------- */
+    .profile-card {
+      background: #1a1a22;
+      border-radius: 16px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff4d4d, #b31217);
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .profile-card h2 {
+      margin-bottom: 6px;
+    }
+
+    .profile-card p {
+      font-size: 14px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>🎬 MovieBook</h1>
+    <p>Book tickets for the latest movies</p>
+  </header>
+
+  <!-- Home Section -->
+  <section>
+    <h2 class="section-title">Now Showing</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span>Action • 2h 10m</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span>Drama • 1h 55m</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Title</h3>
+          <span>Comedy • 2h</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Explore Section -->
+  <section>
+    <h2 class="section-title">Explore</h2>
+    <div class="movie-grid">
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Upcoming Movie</h3>
+          <span>Releasing Soon</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Top Rated</h3>
+          <span>⭐ 4.8</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section>
+    <h2 class="section-title">Profile</h2>
+    <div class="profile-card">
+      <div class="avatar">U</div>
+      <h2>Guest User</h2>
+      <p>No bookings yet</p>
+    </div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item active">
+      <span class="nav-icon">🏠</span>
+      <a href="/">Home</a>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">🔍</span>
+      <a href="/explore">Explore</a>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">👤</span>
+      Profile
+    </div>
+  </nav>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explore Movies</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: #0f0f14;
+      color: #ffffff;
+      min-height: 100vh;
+      padding-bottom: 80px;
+    }
+
+    /* ---------- Header ---------- */
+    header {
+      padding: 20px;
+      background: linear-gradient(135deg, #ff4d4d, #b31217);
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    /* ---------- Search ---------- */
+    .search-box {
+      margin: 20px;
+      background: #1a1a22;
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #aaa;
+      font-size: 14px;
+    }
+
+    /* ---------- Categories ---------- */
+    .categories {
+      display: flex;
+      gap: 10px;
+      padding: 0 20px;
+      overflow-x: auto;
+    }
+
+    .category {
+      background: #1a1a22;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      white-space: nowrap;
+      opacity: 0.85;
+    }
+
+    .category.active {
+      background: #ff4d4d;
+      color: #fff;
+      opacity: 1;
+    }
+
+    /* ---------- Sections ---------- */
+    section {
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    /* ---------- Horizontal Scroll ---------- */
+    .scroll-row {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+    }
+
+    .movie-card {
+      min-width: 140px;
+      background: #1a1a22;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .poster {
+      height: 180px;
+      background: linear-gradient(135deg, #333, #555);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: #ddd;
+    }
+
+    .movie-info {
+      padding: 10px;
+    }
+
+    .movie-info h3 {
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .movie-info span {
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
+    /* ---------- Bottom Nav ---------- */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #14141c;
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      border-top: 1px solid #222;
+    }
+
+    .nav-item {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .nav-item.active {
+      color: #ff4d4d;
+      font-weight: 600;
+    }
+
+    .nav-icon {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Explore</h1>
+  </header>
+
+  <!-- Search -->
+  <div class="search-box">
+    🔍 Search movies, genres, actors
+  </div>
+
+  <!-- Categories -->
+  <div class="categories">
+    <div class="category active">All</div>
+    <div class="category">Action</div>
+    <div class="category">Drama</div>
+    <div class="category">Comedy</div>
+    <div class="category">Sci-Fi</div>
+    <div class="category">Thriller</div>
+  </div>
+
+  <!-- Trending -->
+  <section>
+    <h2 class="section-title">Trending Now</h2>
+    <div class="scroll-row">
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Name</h3>
+          <span>⭐ 4.6</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Name</h3>
+          <span>⭐ 4.8</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Movie Name</h3>
+          <span>⭐ 4.4</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming -->
+  <section>
+    <h2 class="section-title">Upcoming Releases</h2>
+    <div class="scroll-row">
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Upcoming Movie</h3>
+          <span>March 2026</span>
+        </div>
+      </div>
+
+      <div class="movie-card">
+        <div class="poster">Poster</div>
+        <div class="movie-info">
+          <h3>Upcoming Movie</h3>
+          <span>April 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <div class="nav-item">
+      <span class="nav-icon">🏠</span>
+      <a href="/">Home</a>
+    </div>
+    <div class="nav-item active">
+      <span class="nav-icon">🔍</span>
+      <a href="/explore">Explore</a>
+    </div>
+    <div class="nav-item">
+      <span class="nav-icon">👤</span>
+      Profile
+    </div>
+  </nav>
+
+</body>
+</html>
