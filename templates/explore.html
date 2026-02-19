@@ -15,7 +15,15 @@
   <section>
   <h1>Explore Movies</h1>
   </section>
+  
 
+  <section>
+    {% if username and email and password %}
+      <p>Username: {{ username }}</p>
+      <p>Email: {{ email }}</p>
+      <p>Password: {{ password }}</p>
+    {% endif %}
+  </section>
 </body>
 </body>
 </html>
