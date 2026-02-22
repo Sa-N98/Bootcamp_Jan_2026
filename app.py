@@ -1,31 +1,25 @@
 from flask import Flask, render_template, request
+from model import *
+from routes.login import userLogin
+from routes.signup import userSignup
+import os
 
 app = Flask(__name__)
 
+current_dir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+ os.path.join(current_dir, 'users.db')
+
+db.init_app(app)
+app.app_context().push()
+
 @app.route('/') # / == http://192.168.1.49:5001/
-def home():
-   
-    return render_template("home.html")
+def landing():
+    return render_template("landing.html")
 
-@app.route('/explore', methods=['GET', 'POST']) #  http://192.168.1.49:5001/explore
-def explore():
-    if request.method == 'POST':
-        username = request.form['username']
-        email = request.form['email']
-        password = request.form['password']
-
-        if '@' in email and '.' in email:
-            print(f"\n\n\nUsername: {username}, Email: {email}, Password: {password}")
-            return render_template("explore.html", username=username, email=email, password=password)
-        else:
-            print("\n\n\nInvalid email address. Please enter a valid email.")
+userLogin(app)
+userSignup(app)
 
 
-    return render_template("explore.html")
-
-
-@app.route('/my_bookings') #  http://192.168.1.49:5001/my_bookings
-def my_bookings():
-    return render_template("my_bookings.html")
-
-app.run(debug=True, host='0.0.0.0', port=5001)
+if __name__ == '__main__':
+    db.create_all()
+    app.run(debug=True, host='0.0.0.0', port=5001)
