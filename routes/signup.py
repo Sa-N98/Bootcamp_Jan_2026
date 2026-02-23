@@ -10,6 +10,7 @@ def userSignup(app):
             username = request.form["username"]
             email = request.form["email"]
             password = request.form["password"]
+            type = request.form["usr_type"]
 
             if not username or not email or not password:
                 return "All fields are required!", 400
@@ -21,7 +22,7 @@ def userSignup(app):
                 return "Email already exists!", 400
             
 
-            new_user = User(username=username, email=email, password=password)
+            new_user = User(username=username, email=email, password=password, type=type)
 
             db.session.add(new_user)
             db.session.commit()

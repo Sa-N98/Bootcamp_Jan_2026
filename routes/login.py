@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 from model import *
 
 
@@ -17,7 +17,7 @@ def userLogin(app):
             if not user or user.password != password:
                 return "Invalid email or password!", 400
             
-            return f"Welcome back, {user.username}!"
+            return redirect(url_for('usrDashbord', username=user.username))
 
         return render_template("usr_login.html")
 
